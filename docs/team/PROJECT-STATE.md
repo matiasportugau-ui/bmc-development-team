@@ -12,6 +12,8 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 
 > Historial completo: [CAMBIOS-RECIENTES-ARCHIVE.md](./CAMBIOS-RECIENTES-ARCHIVE.md)
 
+**Full team run 2026-03-17 (UKB):** Skill `bmc-universal-knowledge` creado. Base Universal de Conocimiento (UKB) inicializada en `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` con §0–§8: verdades validadas T001–T005, decisiones D001–D005, pendientes P001–P005, historial de runs, glosario, y protocolo de extensión auto-evolutivo. Knowledge Evolution Log creado en `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md`. SKILLS-INDEX y PROJECT-STATE actualizados.
+
 **Full team run 2026-03-17 (Live Comms):** Nuevo skill `bmc-live-team-comms` añadido al equipo. Live Log Center creado en `docs/team/live-comms/LIVE-LOG-CENTER.md`. Todos los agentes pueden ahora correr en ventanas paralelas independientes, emitir entradas continuas al bus de logs, y comunicarse en vivo entre sí. Protocolo de archival por run definido. SKILLS-INDEX, PROJECT-TEAM-FULL-COVERAGE §2/§4, y Orchestrator actualizados para incluir el nuevo rol.
 
 **Full team run 2026-03-16 (run7 — post-go-live agenda):** Orquestador ejecutó run completo 0→9. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-16-run7.md creado. Pasos 1–2: Mapping vigente; sin drift. Paso 3: service-map.md actualizado (fecha, PUSH routes). Paso 3b: Contract 4/4 PASS; kpi-report línea 1130 bmcDashboard.js — ruta montada en /api; 404 runtime = restart servidor. Pasos 3c–5g: Networks, Design, Integrations, Reporter (REPORT-SOLUTION-CODING-run7.md), Security (CORS pre-deploy), GPT/Cloud, Fiscal (incumplimiento Medio detectado/corregido), Billing, Audit (latest-report-run7.md + E2E checklist), Calc. Paso 6: Judge 18/19 formales (Sheets N/A); promedio 4.93/5; JUDGE-REPORT-RUN-2026-03-16-run7.md y HISTORICO actualizados. Paso 7: Repo Sync — bmc-dashboard-2.0 y bmc-development-team verificados y artefactos sincronizados. Paso 9: GUIA-RAPIDA-VENDEDORES.md creada; agenda siguiente run actualizada.
@@ -23,6 +25,13 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 ---
 
 ## Estado por área
+
+### Knowledge Base (UKB)
+
+- **Base Universal:** `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` (memoria persistente de todos los agentes; auto-evolutiva)
+- **Evolution Log:** `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md` (append-only; registro de cambios estructurales)
+- **Skill:** `.cursor/skills/bmc-universal-knowledge/SKILL.md`
+- **Schema versión:** 1.0
 
 ### Live Comms
 

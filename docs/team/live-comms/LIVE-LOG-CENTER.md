@@ -8,3 +8,4 @@
 | Timestamp | Agent | Level | Message |
 |-----------|-------|-------|---------|
 | 2026-03-17 05:01:00 | Orchestrator | BROADCAST | Live Log Center initialized. Parallel team comms enabled. All agents: append entries here as you work. |
+| 2026-03-17 05:36:00 | Orchestrator | BROADCAST | Universal Knowledge Base (UKB) created at docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md. All agents: read UKB before starting tasks. Skill: bmc-universal-knowledge. |
