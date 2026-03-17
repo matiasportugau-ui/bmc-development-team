@@ -336,7 +336,6 @@ Los scripts de edición de hojas se ejecutan desde el workspace Cursor (solo Mat
 - **Phase 2 (PUSH):** Endpoints POST/PATCH + AUDIT_LOG implementados
 - **API Contract:** 4/4 PASS — todos los endpoints validados
 - **Sheets Mapping:** 5 workbooks documentados
-- **Guía usuarios:** Guías rápidas de usuario pendientes de creación (ver pendientes abajo)
 - **Repo Sync:** Ambos repos configurados y sincronizados
 
 ### ⏳ Pendiente
@@ -346,6 +345,7 @@ Los scripts de edición de hojas se ejecutan desde el workspace Cursor (solo Mat
 - **kpi-report runtime:** Verificar GET `/api/kpi-report` retorna 200 tras restart servidor
 - **Deploy producción:** Cloud Run o VPS Netuy (ver [`docs/bmc-dashboard-modernization/IMPLEMENTATION-PLAN-SOLUTION-CODING.md`](./docs/bmc-dashboard-modernization/IMPLEMENTATION-PLAN-SOLUTION-CODING.md) §Fase B)
 - **E2E validation:** Checklist de validación pendiente de crear en `docs/team/E2E-VALIDATION-CHECKLIST.md`
+- **Guía usuarios:** Crear `docs/GUIA-RAPIDA-DASHBOARD-BMC.md` y `docs/GUIA-RAPIDA-VENDEDORES.md`
 - **npm audit fix:** 7 vulns (5 low, 2 moderate en esbuild/vite) — evaluar con Matias
 
 Ver [PROJECT-STATE.md](./docs/team/PROJECT-STATE.md) para el estado detallado y [REPORT-SOLUTION-CODING-run7.md](./docs/bmc-dashboard-modernization/REPORT-SOLUTION-CODING-run7.md) para el último reporte de implementación.
