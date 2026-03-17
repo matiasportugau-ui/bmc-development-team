@@ -66,6 +66,7 @@
 | **Parallel/Serial** | bmc-parallel-serial-agent | Estrategia de ejecución | Evalúa según mejores desempeños en áreas y tareas; sabe qué procesos ejecutar en paralelo vs serie; prevé mejor combinación de agentes según scores y contexto; muy orientado a objetivos |
 | **Repo Sync** | bmc-repo-sync-agent | Repos | Mantiene actualizados bmc-dashboard-2.0 (desarrollo y funcionamiento del dashboard) y bmc-development-team; tras cada corrida evalúa qué actualizar y sincroniza |
 | **Live Comms** | bmc-live-team-comms | Comunicación en vivo | Habilita ejecución paralela de agentes en ventanas independientes; gestiona el Live Log Center (bus de logs compartido); coordina comunicación continua entre agentes; archiva logs por run |
+| **Knowledge Base** | bmc-universal-knowledge-base | Memoria universal | Gestiona el Conversation Log Database (historial permanente de todas las conversaciones) y el Universal Knowledge Base (fuente universal de verdad del equipo); promueve conclusiones confirmadas; gobierna la evolución del schema; garantiza que todo el conocimiento del equipo esté disponible para todos los agentes en todo momento |
 
 ---
 
@@ -138,6 +139,9 @@ Cuando cambia **X**, los agentes en **Y** deben ser notificados o leer el estado
 | **Repo Sync actualiza repos** | Repo Sync → reportar al Orquestador; actualizar PROJECT-STATE si aplica |
 | **Agente emite HANDOFF o BROADCAST** | Live Comms → todos los agentes leen LIVE-LOG-CENTER.md; agente receptor actúa |
 | **Run completo termina** | Live Comms → Orquestador archiva LIVE-LOG-CENTER.md en archive/; reinicia bus para siguiente run |
+| **Conclusión aceptada por agente** | Knowledge Base → agregar entrada en CONVERSATION-LOG-DATABASE.md y promover a UNIVERSAL-KNOWLEDGE-BASE.md si confirmada; broadcast en LIVE-LOG-CENTER.md |
+| **Nuevo dominio o campo en Knowledge Base** | Knowledge Base → registrar en SCHEMA-EVOLUTION-LOG.md; broadcast en LIVE-LOG-CENTER.md; actualizar TOTAL_DOMAINS/TOTAL_ENTRIES en metadata |
+| **Conocimiento contradice PROJECT-STATE** | Knowledge Base → resolver conflicto; actualizar ambos archivos; notificar a Orquestador y agente afectado |
 
 ---
 
