@@ -65,6 +65,7 @@
 | **Judge** | bmc-team-judge | Evaluación y ranqueo | Evalúa forma de trabajo y desempeño; ranqueo por agente; reporte por run y promedio histórico; criterios individuales por agente; evolución continua |
 | **Parallel/Serial** | bmc-parallel-serial-agent | Estrategia de ejecución | Evalúa según mejores desempeños en áreas y tareas; sabe qué procesos ejecutar en paralelo vs serie; prevé mejor combinación de agentes según scores y contexto; muy orientado a objetivos |
 | **Repo Sync** | bmc-repo-sync-agent | Repos | Mantiene actualizados bmc-dashboard-2.0 (desarrollo y funcionamiento del dashboard) y bmc-development-team; tras cada corrida evalúa qué actualizar y sincroniza |
+| **Live Comms** | bmc-live-team-comms | Comunicación en vivo | Habilita ejecución paralela de agentes en ventanas independientes; gestiona el Live Log Center (bus de logs compartido); coordina comunicación continua entre agentes; archiva logs por run |
 
 ---
 
@@ -135,6 +136,8 @@ Cuando cambia **X**, los agentes en **Y** deben ser notificados o leer el estado
 | **Plan de ejecución paralelo/serie** | Parallel/Serial → Orquestador (PARALLEL-SERIAL-PLAN); usa scores del Judge, dependencies |
 | **Cambio en Dashboard o artefactos equipo** | Repo Sync → sync a bmc-dashboard-2.0 y bmc-development-team |
 | **Repo Sync actualiza repos** | Repo Sync → reportar al Orquestador; actualizar PROJECT-STATE si aplica |
+| **Agente emite HANDOFF o BROADCAST** | Live Comms → todos los agentes leen LIVE-LOG-CENTER.md; agente receptor actúa |
+| **Run completo termina** | Live Comms → Orquestador archiva LIVE-LOG-CENTER.md en archive/; reinicia bus para siguiente run |
 
 ---
 
