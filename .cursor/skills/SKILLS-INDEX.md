@@ -13,6 +13,7 @@ Key skills used by the BMC Dashboard team. Full definitions live in Calculadora-
 - bmc-dependencies-service-mapper
 - bmc-dgi-impositivo
 - bmc-implementation-plan-reporter
+- bmc-live-team-comms
 - bmc-parallel-serial-agent
 - bmc-planilla-dashboard-mapper
 - bmc-project-team-sync

@@ -49,6 +49,7 @@ This agent is **transformed into a Team** by the orchestrator. The orchestrator 
 | **Judge** | `bmc-team-judge` | Evaluación, ranqueo, reporte por run, promedio histórico. |
 | **Parallel/Serial** | `bmc-parallel-serial-agent` | Estrategia paralelo vs serie; mejor combinación según scores. |
 | **Repo Sync** | `bmc-repo-sync-agent` | Mantiene actualizados bmc-dashboard-2.0 y bmc-development-team; tras cada corrida evalúa y sincroniza. |
+| **Live Comms** | `bmc-live-team-comms` | Ejecución paralela en ventanas independientes; Live Log Center; comunicación continua entre agentes; archival tras run. |
 
 **Supporting:** `docs/google-sheets-module/README.md`, `docs/bmc-dashboard-modernization/PLAN-PROPOSAL-PLANILLA-DASHBOARD-MAPPING.md`.
 
@@ -62,6 +63,7 @@ This agent is **transformed into a Team** by the orchestrator. The orchestrator 
 |------|------|----------|---------|
 | 0 | Orchestrator | — | Read `PROJECT-STATE.md`, `PROMPT-FOR-EQUIPO-COMPLETO.md`, `IMPROVEMENT-BACKLOG-BY-AGENT.md`; resolver pendientes. |
 | 0b | Parallel/Serial | `bmc-parallel-serial-agent` | Plan de ejecución (paralelo vs serie, clones). |
+| 0c | Live Comms | `bmc-live-team-comms` | Emit `BROADCAST` entry in `LIVE-LOG-CENTER.md`; open parallel windows for agents that run concurrently. |
 | 1 | Orchestrator | — | Plan & proposal confirmado (`PLAN-PROPOSAL-PLANILLA-DASHBOARD-MAPPING.md`). |
 | 2 | Mapping | `bmc-planilla-dashboard-mapper`, `google-sheets-mapping-agent` | Planilla map, DASHBOARD-INTERFACE-MAP, cross-reference. |
 | 2b | Sheets Structure | `bmc-sheets-structure-editor` | *Conditional:* solo si hay cambios estructurales en sheets (tabs, dropdowns). Matias only. |
@@ -79,10 +81,11 @@ This agent is **transformed into a Team** by the orchestrator. The orchestrator 
 | 5g | Calc | `bmc-calculadora-specialist` | Calc status (5173, BOM, Drive, PDF). |
 | 6 | Judge | `bmc-team-judge` | `JUDGE-REPORT-RUN-YYYY-MM-DD.md`, `JUDGE-REPORT-HISTORICO.md`. |
 | 7 | Repo Sync | `bmc-repo-sync-agent` | Sincroniza bmc-dashboard-2.0 y bmc-development-team; evalúa qué actualizar tras la corrida. |
+| 7b | Live Comms | `bmc-live-team-comms` | Archive `LIVE-LOG-CENTER.md` → `archive/LIVE-LOG-YYYY-MM-DD-runN.md`; reset bus. |
 | 8 | Orchestrator | — | Update `PROJECT-STATE.md` (Cambios recientes, Pendientes). |
 | 9 | Orchestrator + roles asignados | — | **Ciclo de mejoras:** Ejecutar los "Próximos prompts" de `PROMPT-FOR-EQUIPO-COMPLETO.md`; cada rol hace su tarea; actualizar `IMPROVEMENT-BACKLOG-BY-AGENT.md` (✓) y la sección "Próximos prompts" para el siguiente run. |
 
-**Orden de ejecución:** 0 → 0b → 1 → 2 → [2b si aplica] → 3 → 3b → 3c → 4 → 4b → 5 → 5b → 5c → 5d → 5e → 5f → 5g → 6 → 7 → 8 → 9.
+**Orden de ejecución:** 0 → 0b → 0c → 1 → 2 → [2b si aplica] → 3 → 3b → 3c → 4 → 4b → 5 → 5b → 5c → 5d → 5e → 5f → 5g → 6 → 7 → 7b → 8 → 9.
 
 **Pasos opcionales según contexto:** 2b (Sheets Structure), 4b (Integrations si no hay cambios ML/Shopify), 5c (GPT/Cloud si no hay cambios OpenAPI), 5e (Billing si no hay cambios facturación), 5g (Calc si no hay cambios Calculadora). El Orquestador decide según pendientes y alcance.
 
@@ -112,6 +115,7 @@ Cuando "Run the BMC Dashboard team" se ejecuta, cada miembro de §2 se invoca as
 |--------|------|--------------|
 | Orchestrator | 0, 1, 8 | Siempre |
 | Parallel/Serial | 0b | Siempre (plan de ejecución) |
+| Live Comms | 0c, 7b | Siempre (abre sesión paralela; archiva log) |
 | Mapping | 2 | Siempre |
 | Sheets Structure | 2b | Conditional: cambios estructurales en sheets |
 | Dependencies | 3 | Siempre |
@@ -159,6 +163,7 @@ Cuando "Run the BMC Dashboard team" se ejecuta, cada miembro de §2 se invoca as
 | Judge | Orchestrator, Repo Sync | `JUDGE-REPORT-RUN-YYYY-MM-DD.md`, `JUDGE-REPORT-HISTORICO.md` |
 | Repo Sync | bmc-dashboard-2.0, bmc-development-team | Código dashboard, artefactos equipo |
 | Parallel/Serial | Orchestrator | `PARALLEL-SERIAL-PLAN-YYYY-MM-DD.md` o plan de ejecución |
+| Live Comms | All agents | `docs/team/live-comms/LIVE-LOG-CENTER.md` (bus de logs); archive tras run |
 
 ---
 
@@ -166,6 +171,7 @@ Cuando "Run the BMC Dashboard team" se ejecuta, cada miembro de §2 se invoca as
 
 - [ ] PROJECT-STATE read; pendientes resueltos.
 - [ ] Parallel/Serial plan (opcional) consultado.
+- [ ] Live Comms: `LIVE-LOG-CENTER.md` BROADCAST emitido; parallel windows activos.
 - [ ] Plan and proposal confirmed (PLAN-PROPOSAL-PLANILLA-DASHBOARD-MAPPING.md).
 - [ ] Mapping: planilla map, dashboard interface map, cross-reference.
 - [ ] Dependencies and service map produced.
@@ -182,6 +188,7 @@ Cuando "Run the BMC Dashboard team" se ejecuta, cada miembro de §2 se invoca as
 - [ ] Calc: 5173 status.
 - [ ] Judge report per run and historical average updated.
 - [ ] Repo Sync: bmc-dashboard-2.0 y bmc-development-team actualizados.
+- [ ] Live Comms: log archivado en `archive/`; bus reseteado para siguiente run.
 - [ ] PROJECT-STATE updated.
 - [ ] Paso 9: Próximos prompts de PROMPT-FOR-EQUIPO-COMPLETO ejecutados; IMPROVEMENT-BACKLOG-BY-AGENT actualizado; "Próximos prompts" actualizado para el siguiente run.
 
@@ -192,4 +199,5 @@ Cuando "Run the BMC Dashboard team" se ejecuta, cada miembro de §2 se invoca as
 - Plan and first task: `docs/bmc-dashboard-modernization/PLAN-PROPOSAL-PLANILLA-DASHBOARD-MAPPING.md`.
 - Full Improvement Plan prompt: `docs/bmc-dashboard-modernization/PROMPT-AGENT-TEAM-FULL-IMPROVEMENT-PLAN.md`.
 - **Improvement cycle:** `docs/team/PROMPT-FOR-EQUIPO-COMPLETO.md`, `docs/team/IMPROVEMENT-BACKLOG-BY-AGENT.md`.
-- Skills paths: `.cursor/skills/` — bmc-planilla-dashboard-mapper, google-sheets-mapping-agent, bmc-sheets-structure-editor, bmc-dependencies-service-mapper, bmc-dashboard-design-best-practices, bmc-implementation-plan-reporter, bmc-api-contract-validator, networks-development-agent, shopify-integration-v4, browser-agent-orchestration, panelin-gpt-cloud-system, openai-gpt-builder-integration, bmc-dgi-impositivo, billing-error-review, bmc-dashboard-audit-runner, cloudrun-diagnostics-reporter, bmc-calculadora-specialist, bmc-security-reviewer, bmc-team-judge, bmc-parallel-serial-agent, bmc-repo-sync-agent.
+- Skills paths: `.cursor/skills/` — bmc-planilla-dashboard-mapper, google-sheets-mapping-agent, bmc-sheets-structure-editor, bmc-dependencies-service-mapper, bmc-dashboard-design-best-practices, bmc-implementation-plan-reporter, bmc-api-contract-validator, networks-development-agent, shopify-integration-v4, browser-agent-orchestration, panelin-gpt-cloud-system, openai-gpt-builder-integration, bmc-dgi-impositivo, billing-error-review, bmc-dashboard-audit-runner, cloudrun-diagnostics-reporter, bmc-calculadora-specialist, bmc-security-reviewer, bmc-team-judge, bmc-parallel-serial-agent, bmc-repo-sync-agent, **bmc-live-team-comms**.
+- **Live Log Center:** `docs/team/live-comms/LIVE-LOG-CENTER.md`; guide `docs/team/live-comms/README.md`.
