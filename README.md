@@ -74,7 +74,7 @@ bmc-development-team/
 ├── .cursor/                                # Configuración de agentes IA (Cursor)
 │   ├── agents/
 │   │   └── bmc-dashboard-team-orchestrator.md    # Orquestador principal del equipo
-│   └── skills/                             # 19 skills especializados
+│   └── skills/                             # 23 skills especializados
 │       ├── bmc-planilla-dashboard-mapper/        # Mapeo Sheets ↔ Dashboard ↔ API
 │       ├── bmc-dashboard-design-best-practices/  # UX/UI, jerarquía, estados
 │       ├── bmc-sheets-structure-editor/          # Gestión de tabs y estructura
@@ -88,11 +88,14 @@ bmc-development-team/
 │       ├── bmc-security-reviewer/                # OAuth, CORS, tokens
 │       ├── bmc-dashboard-audit-runner/           # Auditoría y diagnóstico
 │       │   └── scripts/                          # Script de auditoría
+│       ├── bmc-dashboard-debug-reviewer/         # Revisión post-auditoría; DEBUG-REPORT.md
 │       ├── bmc-calculadora-specialist/           # Calculadora/BOM/Cotizaciones
 │       ├── bmc-parallel-serial-agent/            # Estrategia de ejecución
-│       ├── super-agente-bmc-dashboard/           # Super-agente maestro
+│       ├── bmc-dashboard-netuy-hosting/          # Deploy VPS Netuy (Uruguay)
+│       ├── bmc-dashboard-one-click-setup/        # Setup local completo + versioning
+│       ├── super-agente-bmc-dashboard/           # Auditoría integral 9 pasos
 │       │   └── scripts/                          # Script de auditoría
-│       └── [otros skills...]
+│       └── SKILLS-INDEX.md                       # Índice de todos los skills
 │
 ├── docs/
 │   ├── team/                               # Coordinación y estado del equipo
@@ -121,7 +124,7 @@ bmc-development-team/
 
 ---
 
-## El equipo: 19 agentes especializados
+## El equipo: 23 agentes especializados
 
 El equipo está formado por roles dinámicos. Las habilidades y roles no son estáticos — evolucionan a medida que el proyecto crece. Ver [PROJECT-TEAM-FULL-COVERAGE.md](./docs/team/PROJECT-TEAM-FULL-COVERAGE.md) para el roster canónico.
 
@@ -137,6 +140,7 @@ El equipo está formado por roles dinámicos. Las habilidades y roles no son est
 | **Fiscal** | `bmc-dgi-impositivo` | Oversight | Supervisión protocolo, fiscalización, IVA/CFE |
 | **Billing** | `billing-error-review` | Facturación | Errores, duplicados, cierre mensual |
 | **Audit/Debug** | `bmc-dashboard-audit-runner` | Auditoría | Logs, diagnóstico, health checks |
+| **Debug Reviewer** | `bmc-dashboard-debug-reviewer` | Auditoría | Post-audit analysis; extrae issues/logs por severidad; produce DEBUG-REPORT.md |
 | **Reporter** | `bmc-implementation-plan-reporter` | Reporting | Planes Solution/Coding, handoffs |
 | **Orchestrator** | `bmc-dashboard-team-orchestrator` | Coordinación | Orden de ejecución, handoffs, diálogo |
 | **Contract** | `bmc-api-contract-validator` | API | Validar respuestas contra contrato canónico |
@@ -146,6 +150,19 @@ El equipo está formado por roles dinámicos. Las habilidades y roles no son est
 | **Parallel/Serial** | `bmc-parallel-serial-agent` | Estrategia | Qué ejecutar en paralelo vs en serie |
 | **Repo Sync** | `bmc-repo-sync-agent` | Repos | Mantiene sincronizados ambos repos |
 | **Project Sync** | `bmc-project-team-sync` | Sincronización | Coordinación global del equipo |
+| **Netuy Hosting** | `bmc-dashboard-netuy-hosting` | Infraestructura | Deploy en VPS Netuy (Uruguay): PM2/systemd, nginx, HTTPS |
+| **One-Click Setup** | `bmc-dashboard-one-click-setup` | DevOps / Setup | Setup local completo + versioning y changelog automatizados |
+| **Super Agente** | `super-agente-bmc-dashboard` | Auditoría integral | Auditoría completa de 9 pasos del sistema; produce "REPORTE SUPER AGENTE BMC" |
+
+### Skills cross-cutting (compartidos)
+
+Estos skills están indexados en [`SKILLS-INDEX.md`](./.cursor/skills/SKILLS-INDEX.md) y sus definiciones completas residen en el workspace Calculadora-BMC (repositorio principal). Son recursos compartidos que cualquier miembro del equipo puede invocar:
+
+| Skill | Rol típico | Descripción |
+|-------|-----------|-------------|
+| `ai-interactive-team` | Todos | Protocolo de diálogo y escalación entre agentes |
+| `expert-debug-autonomous` | Audit/Debug, Security | Debugging autónomo avanzado, análisis de errores complejos |
+| `google-sheets-mapping-agent` | Mapping | Mapeo profundo de estructuras en Google Sheets |
 
 ### Capacidades generales de todos los miembros
 
