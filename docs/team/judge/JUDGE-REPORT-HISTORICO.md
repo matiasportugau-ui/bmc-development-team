@@ -90,6 +90,7 @@ Reporte promedio por agente a lo largo de la existencia del equipo. Se actualiza
 | 2026-03-16 | Full team Sheets sync | 19/19 (N/A) | N/A | [JUDGE-REPORT-RUN-2026-03-16.md](./JUDGE-REPORT-RUN-2026-03-16.md) §Run 4 |
 | 2026-03-17 | Full team + sync + Repo Sync setup + git push | 19/19 (N/A) | N/A | [JUDGE-REPORT-RUN-2026-03-16.md](./JUDGE-REPORT-RUN-2026-03-16.md) §Run 5 |
 | 2026-03-16 | Full team Go-live & Hardening | 19/19 (formal) | 4.78 | [JUDGE-REPORT-RUN-2026-03-16-run6.md](./JUDGE-REPORT-RUN-2026-03-16-run6.md) |
+| 2026-03-16 | Full team run 7 — post-go-live agenda | 18/19 (Sheets N/A) | 4.93 | [JUDGE-REPORT-RUN-2026-03-16-run7.md](./JUDGE-REPORT-RUN-2026-03-16-run7.md) |
 
 ---
 
