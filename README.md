@@ -297,15 +297,16 @@ python3 .cursor/skills/bmc-dgi-impositivo/scripts/conciliar_cfe.py \
 
 ### Extracción mensual CFE
 
-Extrae datos mensuales de CFE desde hojas de cálculo:
+Extrae y consolida datos mensuales de CFE a partir de carpetas de XML de DGI:
 
 ```bash
 python3 .cursor/skills/bmc-dgi-impositivo/scripts/extraer_cfe_mensual.py \
-  --sheets-url "https://docs.google.com/spreadsheets/d/..." \
-  --periodo 2026-03
+  --base-dir /ruta/a/carpeta/xml_dgi \
+  --year 2024 \
+  --out-dir ./salida_cfe_mensual
 ```
 
-Soporta formatos de entrada: CSV, XLS, XLSX.
+Espera como entrada carpetas con archivos XML emitidos por DGI y genera archivos consolidados por período.
 
 ### Script de auditoría (Bash)
 
