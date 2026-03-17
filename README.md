@@ -2,7 +2,7 @@
 
 > **Equipo de desarrollo IA multi-agente** para el sistema de dashboard de BMC/Panelin — Uruguay.
 
-Este repositorio es el **hub de coordinación** del equipo de 19 agentes de IA especializados que trabajan en conjunto para desarrollar, mantener y mejorar el [BMC Dashboard](https://github.com/matiasportugau-ui/bmc-dashboard-2.0), una aplicación web de inteligencia de negocio y planificación financiera.
+Este repositorio es el **hub de coordinación** del equipo de 23 agentes de IA especializados que trabajan en conjunto para desarrollar, mantener y mejorar el [BMC Dashboard](https://github.com/matiasportugau-ui/bmc-dashboard-2.0), una aplicación web de inteligencia de negocio y planificación financiera.
 
 ---
 
@@ -11,7 +11,7 @@ Este repositorio es el **hub de coordinación** del equipo de 19 agentes de IA e
 - [¿Qué es este repositorio?](#qué-es-este-repositorio)
 - [Stack tecnológico](#stack-tecnológico)
 - [Estructura de directorios](#estructura-de-directorios)
-- [El equipo: 19 agentes especializados](#el-equipo-19-agentes-especializados)
+- [El equipo: 23 agentes especializados](#el-equipo-23-agentes-especializados)
 - [Aplicación BMC Dashboard](#aplicación-bmc-dashboard)
 - [Configuración y uso](#configuración-y-uso)
 - [Scripts de automatización](#scripts-de-automatización)
@@ -23,7 +23,7 @@ Este repositorio es el **hub de coordinación** del equipo de 19 agentes de IA e
 
 ## ¿Qué es este repositorio?
 
-Este es el repositorio de **coordinación del equipo de desarrollo** de BMC/Panelin. No es una aplicación ejecutable en sí misma — es el núcleo de documentación, definición de agentes y estado del proyecto que permite a 19 agentes de IA trabajar de forma coordinada.
+Este es el repositorio de **coordinación del equipo de desarrollo** de BMC/Panelin. No es una aplicación ejecutable en sí misma — es el núcleo de documentación, definición de agentes y estado del proyecto que permite a 23 agentes de IA trabajar de forma coordinada.
 
 **¿Qué contiene?**
 
@@ -74,7 +74,7 @@ bmc-development-team/
 ├── .cursor/                                # Configuración de agentes IA (Cursor)
 │   ├── agents/
 │   │   └── bmc-dashboard-team-orchestrator.md    # Orquestador principal del equipo
-│   └── skills/                             # 23 skills especializados
+│   └── skills/                             # 18 skills locales (+ skills externos indexados en SKILLS-INDEX.md)
 │       ├── bmc-planilla-dashboard-mapper/        # Mapeo Sheets ↔ Dashboard ↔ API
 │       ├── bmc-dashboard-design-best-practices/  # UX/UI, jerarquía, estados
 │       ├── bmc-sheets-structure-editor/          # Gestión de tabs y estructura
@@ -133,12 +133,12 @@ El equipo está formado por roles dinámicos. Las habilidades y roles no son est
 | **Mapping** | `bmc-planilla-dashboard-mapper` | Sheets, Dashboard | Mapeo planilla ↔ interfaz ↔ API |
 | **Design** | `bmc-dashboard-design-best-practices` | Dashboard UI | UX/UI, jerarquía, loading/error states |
 | **Sheets Structure** | `bmc-sheets-structure-editor` | Sheets | Tabs, dropdowns, estructura (solo Matias) |
-| **Networks** | `networks-development-agent` | Infraestructura | Hosting, endpoints, migración |
+| **Networks** | `networks-development-agent` ¹ | Infraestructura | Hosting, endpoints, migración |
 | **Dependencies** | `bmc-dependencies-service-mapper` | Todas | Grafo de dependencias, service map |
-| **Integrations** | `shopify-integration-v4` | Integraciones | Shopify, ML, OAuth, webhooks |
-| **GPT/Cloud** | `panelin-gpt-cloud-system` | GPT, Cloud Run | OpenAPI, GPT Builder, Cloud Run |
+| **Integrations** | `shopify-integration-v4` ² | Integraciones | Shopify, ML, OAuth, webhooks |
+| **GPT/Cloud** | `panelin-gpt-cloud-system` ² | GPT, Cloud Run | OpenAPI, GPT Builder, Cloud Run |
 | **Fiscal** | `bmc-dgi-impositivo` | Oversight | Supervisión protocolo, fiscalización, IVA/CFE |
-| **Billing** | `billing-error-review` | Facturación | Errores, duplicados, cierre mensual |
+| **Billing** | `billing-error-review` ¹ | Facturación | Errores, duplicados, cierre mensual |
 | **Audit/Debug** | `bmc-dashboard-audit-runner` | Auditoría | Logs, diagnóstico, health checks |
 | **Debug Reviewer** | `bmc-dashboard-debug-reviewer` | Auditoría | Post-audit analysis; extrae issues/logs por severidad; produce DEBUG-REPORT.md |
 | **Reporter** | `bmc-implementation-plan-reporter` | Reporting | Planes Solution/Coding, handoffs |
@@ -163,6 +163,9 @@ Estos skills están indexados en [`SKILLS-INDEX.md`](./.cursor/skills/SKILLS-IND
 | `ai-interactive-team` | Todos | Protocolo de diálogo y escalación entre agentes |
 | `expert-debug-autonomous` | Audit/Debug, Security | Debugging autónomo avanzado, análisis de errores complejos |
 | `google-sheets-mapping-agent` | Mapping | Mapeo profundo de estructuras en Google Sheets |
+
+> ¹ Skill indexado en `SKILLS-INDEX.md` — definición completa en workspace Calculadora-BMC.  
+> ² Skill **no indexado** en este repo — definición en workspace Calculadora-BMC. Contactar al Orquestador para obtener acceso.
 
 ### Capacidades generales de todos los miembros
 
@@ -213,15 +216,15 @@ El dashboard es la aplicación principal que este equipo desarrolla y mantiene, 
 
 | Workbook | ID | Descripción |
 |----------|-----|-------------|
-| Principal | `1N-4kyT_uSPSVnu5tMIc6VzFIaga8FHDDEDGcclafRWg` | CRM_Operativo, Pagos, Metas, AUDIT_LOG |
+| Principal | `<YOUR_SHEET_ID>` | CRM_Operativo, Pagos, Metas, AUDIT_LOG |
 
-Ver [`docs/google-sheets-module/planilla-inventory.md`](./docs/google-sheets-module/planilla-inventory.md) para el inventario completo de tabs y columnas.
+> El ID real de la planilla es privado. Los contribuidores autorizados lo obtienen de Matias o del archivo `.env` local (variable `BMC_SHEET_ID`).
 
 ---
 
 ## Configuración y uso
 
-### Prerequisitos
+### Prerrequisitos
 
 - Node.js (para el dashboard en `bmc-dashboard-2.0`)
 - Python 3.x (para scripts fiscales)
@@ -237,7 +240,7 @@ BMC_DASHBOARD_2_REPO=/path/to/bmc-dashboard-2.0
 BMC_DEVELOPMENT_TEAM_REPO=/path/to/bmc-development-team
 
 # Google Sheets / Drive
-BMC_SHEET_ID=1N-4kyT_uSPSVnu5tMIc6VzFIaga8FHDDEDGcclafRWg
+BMC_SHEET_ID=<YOUR_SHEET_ID>
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
 
 # Otras integraciones (en bmc-dashboard-2.0/.env)
@@ -316,10 +319,7 @@ bash .cursor/skills/bmc-dashboard-audit-runner/scripts/run_audit_then_debug.sh
 
 ### Scripts de estructura de hojas
 
-```bash
-# Agregar tab nueva (solo Matias, desde workspace Cursor)
-node .cursor/skills/bmc-sheets-structure-editor/scripts/add-tab.js "NuevoTab"
-```
+Los scripts de edición de hojas se ejecutan desde el workspace Cursor (solo Matias). Ver los ejemplos de uso en [`.cursor/skills/bmc-sheets-structure-editor/SKILL.md`](./.cursor/skills/bmc-sheets-structure-editor/SKILL.md).
 
 ---
 
@@ -336,7 +336,7 @@ node .cursor/skills/bmc-sheets-structure-editor/scripts/add-tab.js "NuevoTab"
 - **Phase 2 (PUSH):** Endpoints POST/PATCH + AUDIT_LOG implementados
 - **API Contract:** 4/4 PASS — todos los endpoints validados
 - **Sheets Mapping:** 5 workbooks documentados
-- **Guía usuarios:** `docs/GUIA-RAPIDA-DASHBOARD-BMC.md` y `docs/GUIA-RAPIDA-VENDEDORES.md` creadas
+- **Guía usuarios:** Guías rápidas de usuario pendientes de creación (ver pendientes abajo)
 - **Repo Sync:** Ambos repos configurados y sincronizados
 
 ### ⏳ Pendiente
@@ -344,8 +344,8 @@ node .cursor/skills/bmc-sheets-structure-editor/scripts/add-tab.js "NuevoTab"
 - **Tabs manuales:** Crear CONTACTOS, Ventas_Consolidado, SHOPIFY_SYNC_AT, PAGADO (responsabilidad Matias)
 - **Apps Script Triggers:** 6 triggers de automatización (post-tabs)
 - **kpi-report runtime:** Verificar GET `/api/kpi-report` retorna 200 tras restart servidor
-- **Deploy producción:** Cloud Run o VPS Netuy (ver `IMPLEMENTATION-PLAN-POST-GO-LIVE.md §Fase B`)
-- **E2E validation:** Ejecutar checklist `docs/team/E2E-VALIDATION-CHECKLIST.md`
+- **Deploy producción:** Cloud Run o VPS Netuy (ver [`docs/bmc-dashboard-modernization/IMPLEMENTATION-PLAN-SOLUTION-CODING.md`](./docs/bmc-dashboard-modernization/IMPLEMENTATION-PLAN-SOLUTION-CODING.md) §Fase B)
+- **E2E validation:** Checklist de validación pendiente de crear en `docs/team/E2E-VALIDATION-CHECKLIST.md`
 - **npm audit fix:** 7 vulns (5 low, 2 moderate en esbuild/vite) — evaluar con Matias
 
 Ver [PROJECT-STATE.md](./docs/team/PROJECT-STATE.md) para el estado detallado y [REPORT-SOLUTION-CODING-run7.md](./docs/bmc-dashboard-modernization/REPORT-SOLUTION-CODING-run7.md) para el último reporte de implementación.
