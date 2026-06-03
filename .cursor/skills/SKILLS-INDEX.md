@@ -21,7 +21,11 @@ Key skills used by the BMC Dashboard team. Full definitions live in Calculadora-
 - bmc-security-reviewer
 - bmc-sheets-structure-editor
 - bmc-team-judge
+<<<<<<< HEAD
 - bmc-universal-knowledge
+=======
+- bmc-universal-knowledge-base
+>>>>>>> origin/main
 
 ## Cross-cutting
 - ai-interactive-team
