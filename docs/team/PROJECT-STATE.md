@@ -12,11 +12,6 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 
 > Historial completo: [CAMBIOS-RECIENTES-ARCHIVE.md](./CAMBIOS-RECIENTES-ARCHIVE.md)
 
-<<<<<<< HEAD
-**Full team run 2026-03-17 (UKB):** Skill `bmc-universal-knowledge` creado. Base Universal de Conocimiento (UKB) inicializada en `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` con §0–§8: verdades validadas T001–T005, decisiones D001–D005, pendientes P001–P005, historial de runs, glosario, y protocolo de extensión auto-evolutivo. Knowledge Evolution Log creado en `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md`. SKILLS-INDEX y PROJECT-STATE actualizados.
-
-**Full team run 2026-03-17 (Live Comms):** Nuevo skill `bmc-live-team-comms` añadido al equipo. Live Log Center creado en `docs/team/live-comms/LIVE-LOG-CENTER.md`. Todos los agentes pueden ahora correr en ventanas paralelas independientes, emitir entradas continuas al bus de logs, y comunicarse en vivo entre sí. Protocolo de archival por run definido. SKILLS-INDEX, PROJECT-TEAM-FULL-COVERAGE §2/§4, y Orchestrator actualizados para incluir el nuevo rol.
-=======
 **2026-03-19 (Full team run 18 — Invoque full team, deploy completado):** Orquestador ejecutó full team run 0→9. Paso 0: PROJECT-STATE, PROMPT, BACKLOG leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-19-run18.md. Pasos 1–8: Mapping vigente; Dependencies/service-map actualizados con deploy flow, Cloud Run URL, Vercel; Contract 4/4 PASS (runtime); Reporter REPORT-SOLUTION-CODING-2026-03-19-run18.md; Judge JUDGE-REPORT-RUN-2026-03-19-run18.md (promedio 4.96/5); Repo Sync REPO-SYNC-REPORT-2026-03-19-run18.md. Paso 9: PROMPT "Próximos prompts" actualizado. Deploy completado: Cloud Run panelin-calc con /calculadora. Dockerfile fixes (easymidi --ignore-scripts), .dockerignore, cloudbuild.yaml, deploy script. Pendientes: tabs/triggers, E2E con URL Cloud Run, npm audit fix, billing cierre.
 
 **2026-03-19 (Full team run 17 — Invoque full team, deploy calc):** Orquestador ejecutó full team run 0→9. Paso 0: PROJECT-STATE, PROMPT, BACKLOG leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-19-run17.md. Pasos 1–8: Mapping vigente; Dependencies/service-map actualizados (run17); Contract 4/4 PASS (runtime); Reporter REPORT-SOLUTION-CODING-2026-03-19-run17.md (deploy options: Cloud Run, Vercel, Netuy); Judge JUDGE-REPORT-RUN-2026-03-19-run17.md (promedio 4.96/5); Repo Sync REPO-SYNC-REPORT-2026-03-19-run17.md. Paso 9: PROMPT "Próximos prompts" actualizado. Pendientes: deploy calc (Cloud Run/Vercel/Netuy), tabs/triggers, E2E, npm audit fix.
@@ -39,6 +34,10 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 
 **2026-03-18 (Full team analysis run — study evaluation):** Se ejecutó un run de análisis completo (19 roles) para evaluar el estudio externo "Análisis Integral y Modernización de la Arquitectura de Gestión Comercial". Sin implementación: no se realizaron cambios de código, config, Sheets ni triggers. Entregable: docs/team/reports/REPORT-STUDY-IMPROVEMENTS-2026-03-18.md (mejoras priorizadas por área, con rationale).
 
+**Full team run 2026-03-17 (UKB):** Skill `bmc-universal-knowledge` creado. Base Universal de Conocimiento (UKB) inicializada en `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` con §0–§8: verdades validadas T001–T005, decisiones D001–D005, pendientes P001–P005, historial de runs, glosario, y protocolo de extensión auto-evolutivo. Knowledge Evolution Log creado en `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md`. SKILLS-INDEX y PROJECT-STATE actualizados.
+
+**Full team run 2026-03-17 (Live Comms):** Nuevo skill `bmc-live-team-comms` añadido al equipo. Live Log Center creado en `docs/team/live-comms/LIVE-LOG-CENTER.md`. Todos los agentes pueden ahora correr en ventanas paralelas independientes, emitir entradas continuas al bus de logs, y comunicarse en vivo entre sí. Protocolo de archival por run definido. SKILLS-INDEX, PROJECT-TEAM-FULL-COVERAGE §2/§4, y Orchestrator actualizados para incluir el nuevo rol.
+
 **2026-03-16 (Full team run + apply study improvements):** Orquestador ejecutando run 0→9. **Aplicado:** REPORT-STUDY-IMPROVEMENTS corregido (Shopify referencia, Pendientes_/Pagos_Pendientes, Panelin Evolution); sección 20 Fases de implementación añadida; service-map Apps Script como nodo; PROMPT-FOR-EQUIPO-COMPLETO incluye REPORT-STUDY-IMPROVEMENTS como input. Pendientes sin cambio.
 
 **Full team run 2026-03-17 run 6 (Invoque full team):** Paso 0: state, prompt, backlog leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-17-run6.md. Pasos 1–8: Mapping vigente; Dependencies/service-map fecha 2026-03-17; Contract 4/4 PASS (código); Reporter REPORT-SOLUTION-CODING-run6; Judge JUDGE-REPORT-RUN-2026-03-17-run8 (promedio 4.94/5); Repo Sync REPO-SYNC-REPORT. Paso 9: PROMPT y BACKLOG actualizados; sin prompts automatizables; pendientes 1, 3, 6, 7 (Matias).
@@ -48,7 +47,6 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 **Full team run 2026-03-18 run 4 (Invoque full team):** Paso 0: state, prompt, backlog leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-18-run4.md. Pasos 1–8: estado vigente. Paso 9: sin prompts automatizables; agenda 1, 3, 6, 7 pendiente (Matias). PROJECT-STATE y PROMPT actualizados.
 
 **Full team run 2026-03-18 run 3 (Invoque full team):** Paso 0: state, prompt, backlog leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-18-run3.md. Pasos 1–8: estado vigente; sin cambios de dominio. Paso 9: Agenda pendiente (1 tabs/triggers, 3 deploy, 6 npm --force, 7 Repo Sync opcional) requiere Matias manual o decisión; sin entregables automatizables en este run. PROJECT-STATE y PROMPT actualizados.
->>>>>>> origin/main
 
 **Full team run 2026-03-16 (run7 — post-go-live agenda):** Orquestador ejecutó run completo 0→9. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-16-run7.md creado. Pasos 1–2: Mapping vigente; sin drift. Paso 3: service-map.md actualizado (fecha, PUSH routes). Paso 3b: Contract 4/4 PASS; kpi-report línea 1130 bmcDashboard.js — ruta montada en /api; 404 runtime = restart servidor. Pasos 3c–5g: Networks, Design, Integrations, Reporter (REPORT-SOLUTION-CODING-run7.md), Security (CORS pre-deploy), GPT/Cloud, Fiscal (incumplimiento Medio detectado/corregido), Billing, Audit (latest-report-run7.md + E2E checklist), Calc. Paso 6: Judge 18/19 formales (Sheets N/A); promedio 4.93/5; JUDGE-REPORT-RUN-2026-03-16-run7.md y HISTORICO actualizados. Paso 7: Repo Sync — bmc-dashboard-2.0 y bmc-development-team verificados y artefactos sincronizados. Paso 9: GUIA-RAPIDA-VENDEDORES.md creada; agenda siguiente run actualizada.
 
@@ -60,7 +58,6 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 
 ## Estado por área
 
-<<<<<<< HEAD
 ### Knowledge Base (UKB)
 
 - **Base Universal:** `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` (memoria persistente de todos los agentes; auto-evolutiva)
@@ -75,8 +72,6 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 - **Skill:** `.cursor/skills/bmc-live-team-comms/SKILL.md`
 - **Guía:** `docs/team/live-comms/README.md`
 
-=======
->>>>>>> origin/main
 ### Sheets / Planillas
 
 - **Workbooks:** 5 (multi-workbook). Principal: `1N-4kyT_uSPSVnu5tMIc6VzFIaga8FHDDEDGcclafRWg`. Ver `docs/google-sheets-module/SHEETS-MAPPING-5-WORKBOOKS.md` y `planilla-inventory.md`.
