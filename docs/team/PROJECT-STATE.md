@@ -34,6 +34,10 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 
 **2026-03-18 (Full team analysis run — study evaluation):** Se ejecutó un run de análisis completo (19 roles) para evaluar el estudio externo "Análisis Integral y Modernización de la Arquitectura de Gestión Comercial". Sin implementación: no se realizaron cambios de código, config, Sheets ni triggers. Entregable: docs/team/reports/REPORT-STUDY-IMPROVEMENTS-2026-03-18.md (mejoras priorizadas por área, con rationale).
 
+**Full team run 2026-03-17 (UKB):** Skill `bmc-universal-knowledge` creado. Base Universal de Conocimiento (UKB) inicializada en `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` con §0–§8: verdades validadas T001–T005, decisiones D001–D005, pendientes P001–P005, historial de runs, glosario, y protocolo de extensión auto-evolutivo. Knowledge Evolution Log creado en `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md`. SKILLS-INDEX y PROJECT-STATE actualizados.
+
+**Full team run 2026-03-17 (Live Comms):** Nuevo skill `bmc-live-team-comms` añadido al equipo. Live Log Center creado en `docs/team/live-comms/LIVE-LOG-CENTER.md`. Todos los agentes pueden ahora correr en ventanas paralelas independientes, emitir entradas continuas al bus de logs, y comunicarse en vivo entre sí. Protocolo de archival por run definido. SKILLS-INDEX, PROJECT-TEAM-FULL-COVERAGE §2/§4, y Orchestrator actualizados para incluir el nuevo rol.
+
 **2026-03-16 (Full team run + apply study improvements):** Orquestador ejecutando run 0→9. **Aplicado:** REPORT-STUDY-IMPROVEMENTS corregido (Shopify referencia, Pendientes_/Pagos_Pendientes, Panelin Evolution); sección 20 Fases de implementación añadida; service-map Apps Script como nodo; PROMPT-FOR-EQUIPO-COMPLETO incluye REPORT-STUDY-IMPROVEMENTS como input. Pendientes sin cambio.
 
 **Full team run 2026-03-17 run 6 (Invoque full team):** Paso 0: state, prompt, backlog leídos. Paso 0b: PARALLEL-SERIAL-PLAN-2026-03-17-run6.md. Pasos 1–8: Mapping vigente; Dependencies/service-map fecha 2026-03-17; Contract 4/4 PASS (código); Reporter REPORT-SOLUTION-CODING-run6; Judge JUDGE-REPORT-RUN-2026-03-17-run8 (promedio 4.94/5); Repo Sync REPO-SYNC-REPORT. Paso 9: PROMPT y BACKLOG actualizados; sin prompts automatizables; pendientes 1, 3, 6, 7 (Matias).
@@ -53,6 +57,20 @@ Fuente única de estado para que todos los agentes estén actualizados. Ver [PRO
 ---
 
 ## Estado por área
+
+### Knowledge Base (UKB)
+
+- **Base Universal:** `docs/team/knowledge-base/UNIVERSAL-KNOWLEDGE-BASE.md` (memoria persistente de todos los agentes; auto-evolutiva)
+- **Evolution Log:** `docs/team/knowledge-base/KNOWLEDGE-EVOLUTION-LOG.md` (append-only; registro de cambios estructurales)
+- **Skill:** `.cursor/skills/bmc-universal-knowledge/SKILL.md`
+- **Schema versión:** 1.0
+
+### Live Comms
+
+- **Log bus:** `docs/team/live-comms/LIVE-LOG-CENTER.md` (append-only; todos los agentes leen y escriben)
+- **Archive:** `docs/team/live-comms/archive/` (log por run tras archival)
+- **Skill:** `.cursor/skills/bmc-live-team-comms/SKILL.md`
+- **Guía:** `docs/team/live-comms/README.md`
 
 ### Sheets / Planillas
 
